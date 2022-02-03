@@ -876,7 +876,7 @@
             r = document,
             o = t("html"),
             a = t("body"),
-            s = "webflow-badge",
+            s = ".w-webflow-badge",
             u = window.location,
             c = /PhantomJS/i.test(navigator.userAgent),
             l = "fullscreenchange webkitfullscreenchange mozfullscreenchange msfullscreenchange";
@@ -894,8 +894,8 @@
         }
         return n.ready = function () {
             var n, i, a, s = o.attr("data-wf-status"),
-                h = o.attr("") || "";
-            i.test(h) && u.hostname !== h && (s = !0), s && !c && (e = e || (n = t('').attr("", ""), i = t("").attr("", "").attr("alt", "").css({
+                h = o.attr("data-wf-domain") || "";
+            /\.webflow\.io$/i.test(h) && u.hostname !== h && (s = !0), s && !c && (e = e || (n = t('<a class="w-webflow-badge"></a>').attr("", ""), i = t("").attr("", "").attr("", "").css({
                 marginRight: "8px",
                 width: "16px"
             }), a = t("").attr("", "").attr("", ""), n.append(i, a), n[0]), d(), setTimeout(d, 500), t(r).off(l, f).on(l, f))
@@ -1665,7 +1665,7 @@
         }
         c.ready = c.design = c.preview = function () {
             ! function () {
-                o = t("html").attr("data-wf-site"), s = "https://webflow.com/api/v1/form/" + o, d && s.indexOf("") >= 0 && (s = s.replace("", "http://formdata.webflow.com"));
+                o = t("html").attr("data-wf-site"), s = "https://webflow.com/api/v1/form/" + o, d && s.indexOf("https://webflow.com") >= 0 && (s = s.replace("https://webflow.com", "http://formdata.webflow.com"));
                 if (u = "".concat(s, "/signFile"), !(n = t(h + " form")).length) return;
                 n.each(y)
             }(), w || a || function () {
